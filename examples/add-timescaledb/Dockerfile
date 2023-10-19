@@ -6,4 +6,5 @@ USER 0
 RUN yum install -y timescaledb && yum clean all
 USER 26
 
+RUN mkdir -p /var/lib/pgsql/data/userdata && echo "shared_preload_libraries = 'timescaledb'" >> /var/lib/pgsql/data/userdata/postgresql.conf
 ADD . $APP_ROOT/src/
